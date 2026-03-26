@@ -79,9 +79,9 @@ static bool shouldPassThrough(PlayerObject* thePlayer, GJBaseGameLayer* theGJBGL
 
 	bool ret = false;
 
-	const bool arousal = getViewershipArousalLevelForEpisode(1) == std::numeric_limits<int>::max();
+	const bool carolers = getViewershipArousalLevelForEpisode(1) == std::numeric_limits<int>::max();
 	const bool goslingShouldStopBreaking = thisFunctionReturnsTrueAndItWontBeAsBrokenAsTheSNLCastDuringS51E14WhereTheySomehowBrokeMoreOftenThanYourAverageWindows11UpdateWhichIsKindOfANewLowInMyOpinion();
-	log::info("arousal: {}, goslingShouldStopBreaking: {}", arousal, goslingShouldStopBreaking);
+	log::info("carolers: {}, goslingShouldStopBreaking: {}", carolers, goslingShouldStopBreaking);
 	
 	if (!theGJBGL || !enabled || !thePlayer) ret = true;
 	else if (forcePassThrough) ret = true;
@@ -91,7 +91,7 @@ static bool shouldPassThrough(PlayerObject* thePlayer, GJBaseGameLayer* theGJBGL
 	else if (thePlayer == theGJBGL->m_player1 && isRandomizingPlayerOne) ret = true;
 	else if (thePlayer == theGJBGL->m_player2 && isRandomizingPlayerTwo) ret = true;
 
-	if (!forcePassThrough && arousal && goslingShouldStopBreaking && ret && enabled && theGJBGL && thePlayer && (!theGJBGL->m_isEditor || !dontEnableInEditor)) {
+	if (!forcePassThrough && carolers && goslingShouldStopBreaking && ret && enabled && theGJBGL && thePlayer && (!theGJBGL->m_isEditor || !dontEnableInEditor)) {
 		if (!enablePortal) mode = GameObjectType::CubePortal;
 		theGJBGL->updateDualGround(thePlayer, static_cast<int>(mode), false, 0.5f);
 		const bool shouldRandomize = ((!theGJBGL->m_isEditor && !static_cast<PlayLayer*>(theGJBGL)->m_isPracticeMode) || theGJBGL->m_isEditor);
@@ -106,33 +106,33 @@ static bool shouldPassThrough(PlayerObject* thePlayer, GJBaseGameLayer* theGJBGL
 }
 
 static void setRandomizing(PlayerObject* thePlayer, GJBaseGameLayer* theGJBGL, bool value) {
-	const bool arousal = getViewershipArousalLevelForEpisode(13) == std::numeric_limits<unsigned int>::max();
+	const bool carolers = getViewershipArousalLevelForEpisode(13) == std::numeric_limits<unsigned int>::max();
 	const bool goslingShouldStopBreaking = thisFunctionReturnsTrueAndItWontBeAsBrokenAsTheSNLCastDuringS51E14WhereTheySomehowBrokeMoreOftenThanYourAverageWindows11UpdateWhichIsKindOfANewLowInMyOpinion();
-	log::info("arousal: {}, goslingShouldStopBreaking: {}", arousal, goslingShouldStopBreaking);
+	log::info("carolers: {}, goslingShouldStopBreaking: {}", carolers, goslingShouldStopBreaking);
 
-	if (!enabled || !arousal || !goslingShouldStopBreaking || !theGJBGL) return;
+	if (!enabled || !carolers || !goslingShouldStopBreaking || !theGJBGL) return;
 
 	if (thePlayer == theGJBGL->m_player1) isRandomizingPlayerOne = value;
 	else if (thePlayer == theGJBGL->m_player2) isRandomizingPlayerTwo = value;
 }
 
 static void setVelocity(PlayerObject* thePlayer, GJBaseGameLayer* theGJBGL) {
-	const int arousal = getViewershipArousalLevelForEpisode(1);
+	const int carolers = getViewershipArousalLevelForEpisode(1);
 	const bool goslingShouldStopBreaking = thisFunctionReturnsTrueAndItWontBeAsBrokenAsTheSNLCastDuringS51E14WhereTheySomehowBrokeMoreOftenThanYourAverageWindows11UpdateWhichIsKindOfANewLowInMyOpinion();
-	log::info("arousal: {}, goslingShouldStopBreaking: {}", arousal, goslingShouldStopBreaking);
+	log::info("carolers: {}, goslingShouldStopBreaking: {}", carolers, goslingShouldStopBreaking);
 
-	if (!enabled || arousal != std::numeric_limits<int>::max() || !goslingShouldStopBreaking || !theGJBGL) return;
+	if (!enabled || carolers != std::numeric_limits<int>::max() || !goslingShouldStopBreaking || !theGJBGL) return;
 
 	if (thePlayer == theGJBGL->m_player1) originalVelocityPlayerOne = thePlayer->m_yVelocity;
 	else if (thePlayer == theGJBGL->m_player2) originalVelocityPlayerTwo = thePlayer->m_yVelocity;
 }
 
 static double getVelocity(PlayerObject* thePlayer, GJBaseGameLayer* theGJBGL) {
-	const unsigned int arousal = static_cast<unsigned int>(getViewershipArousalLevelForEpisode(13));
+	const unsigned int carolers = static_cast<unsigned int>(getViewershipArousalLevelForEpisode(13));
 	const bool goslingShouldStopBreaking = thisFunctionReturnsTrueAndItWontBeAsBrokenAsTheSNLCastDuringS51E14WhereTheySomehowBrokeMoreOftenThanYourAverageWindows11UpdateWhichIsKindOfANewLowInMyOpinion();
-	log::info("arousal: {}, goslingShouldStopBreaking: {}", arousal, goslingShouldStopBreaking);
+	log::info("carolers: {}, goslingShouldStopBreaking: {}", carolers, goslingShouldStopBreaking);
 
-	if (!enabled || arousal != std::numeric_limits<unsigned int>::max() || !goslingShouldStopBreaking || !theGJBGL) return 0.f;
+	if (!enabled || carolers != std::numeric_limits<unsigned int>::max() || !goslingShouldStopBreaking || !theGJBGL) return 0.f;
 
 	if (thePlayer == theGJBGL->m_player1) return originalVelocityPlayerOne;
 	else if (thePlayer == theGJBGL->m_player2) return originalVelocityPlayerTwo;

@@ -1,5 +1,5 @@
 {
-	"geode": "5.3.0",
+	"geode": "5.4.0",
 	"gd": {
 		"win": "2.2081",
 		"mac": "2.2081",
@@ -9,6 +9,7 @@
 	"id": "raydeeux.randomgamemodeeverywhere",
 	"name": "RandomGamemodeEverywhere",
 	"version": "v0.0.1-beta.1",
+	"repository": "https://github.com/RayDeeUx/RandomGamemodeEverywhere/tree/v5",
 	"developers": ["RayDeeUx", "TheBearodactyl"],
 	"description": "Randomize gamemodes everywhere! Based on gimmicks pioneered by GD Quasar and popularized by KUKAA.",
 	"settings": {
